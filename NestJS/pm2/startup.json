@@ -1,0 +1,49 @@
+{
+  "apps": [
+    {
+      "name": "Boiler-Plate-API",
+      "script": "index.js",
+      "args": "start",
+      "exec_interpreter": "node",
+      "watch": [
+        "src/**",
+        "*"
+      ],
+      "ignore_watch": [
+        "[\\/\\\\]\\./",
+        "node_modules"
+      ],
+      "node_args": [
+        "--harmony",
+        "--expose-gc",
+        "--max-old-space-size=1024"
+      ],
+      "log_date_format": "YYYY-MM-DD HH:mm Z",
+      "error_file": "../log/error.log",
+      "out_file": "../log/info.log",
+      "instances": 1,
+      "min_uptime": "400s",
+      "max_restarts": 20,
+      "max_memory_restart": "4G",
+      "merge_logs": true,
+      "exec_mode": "cluster",
+      "autorestart": true,
+      "env": {
+        "PORT": 3307,
+        "NODE_ENV": "development"
+      },
+      "env_staging": {
+        "PORT": 5052,
+        "NODE_ENV": "staging"
+      },
+      "env_testing": {
+        "PORT": 3307,
+        "NODE_ENV": "testing"
+      },
+      "env_production": {
+        "PORT": 3307,
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
